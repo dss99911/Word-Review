@@ -1,0 +1,17 @@
+CREATE TABLE wordBook (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  name TEXT NOT NULL,
+  lang TEXT
+);
+
+selectAll:
+SELECT *
+FROM wordBook;
+
+insert:
+INSERT INTO wordBook(name, lang)
+VALUES (?, ?);
+
+delete:
+DELETE FROM wordBook
+WHERE id = ?;

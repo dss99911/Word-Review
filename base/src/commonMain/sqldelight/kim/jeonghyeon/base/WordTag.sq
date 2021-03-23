@@ -1,0 +1,20 @@
+CREATE TABLE wordTag (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  wordId INTEGER NOT NULL,
+  name TEXT NOT NULL
+);
+
+CREATE INDEX index_word_tag_word_id ON wordTag(wordId);
+CREATE INDEX index_word_tag_name ON wordTag(name);
+
+selectAll:
+SELECT *
+FROM wordTag;
+
+insert:
+INSERT INTO wordTag(wordId, name)
+VALUES (?, ?);
+
+delete:
+DELETE FROM wordTag
+WHERE id = ?;

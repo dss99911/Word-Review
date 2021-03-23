@@ -1,0 +1,33 @@
+CREATE TABLE word (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  wordBookId INTEGER NOT NULL,
+  word TEXT NOT NULL,
+  meaning TEXT NOT NULL,
+  sentence TEXT,
+  sentenceMeaning TEXT,
+  description TEXT
+);
+
+CREATE INDEX index_word_word_book_id ON word(wordBookId);
+CREATE INDEX index_word_word ON word(word);
+CREATE INDEX index_word_meaning ON word(meaning);
+
+selectAll:
+SELECT *
+FROM word;
+
+selectAllInWordBook:
+SELECT *
+FROM word
+WHERE wordBookId = ?;
+
+insert:
+INSERT INTO word(wordBookId, word, meaning, sentence, sentenceMeaning, description)
+VALUES (?, ?, ?, ?, ?, ?);
+
+delete:
+DELETE FROM word
+WHERE id = ?;
+
+deleteAll:
+DELETE FROM word;

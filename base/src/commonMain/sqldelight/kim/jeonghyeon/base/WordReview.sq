@@ -1,0 +1,22 @@
+CREATE TABLE wordReview (
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  wordId INTEGER NOT NULL,
+  level INTEGER NOT NULL,
+  updateDate INTEGER NOT NULL
+);
+
+CREATE INDEX index_word_review_word_id ON wordReview(wordId);
+CREATE INDEX index_word_review_level ON wordReview(level);
+CREATE INDEX index_word_review_update_date ON wordReview(updateDate);
+
+selectAll:
+SELECT *
+FROM wordReview;
+
+insert:
+INSERT INTO wordReview(wordId, level, updateDate)
+VALUES (?, ?, ?);
+
+delete:
+DELETE FROM wordReview
+WHERE id = ?;
