@@ -22,7 +22,7 @@ fun HomeDrawer(closeDrawer: () -> Unit) {
         it is HomeViewModel
     } as? HomeViewModel ?: HomeViewModel()
 
-    val closeAndNavigateTo: () -> Unit = {
+    val closeAndNavigateToHome: () -> Unit = {
         closeDrawer()
 
         if (!Navigator.backUpTo(homeViewModel)) {
@@ -36,14 +36,12 @@ fun HomeDrawer(closeDrawer: () -> Unit) {
         Divider(color = MaterialTheme.colors.onSurface.copy(alpha = .2f))
 
         DrawerButton(
-            icon = tab.icon,
-            label = tab.title,
-            isSelected = +homeViewModel.currentTabIndex == index,
-            action = { closeAndNavigateTo(index) }
-        )
-        homeTabList.forEachIndexed { index, tab ->
+            icon = null,
+            label = "Word Book",
+            isSelected = false,
+            action = { closeAndNavigateToHome() }
 
-        }
+        )
     }
 }
 
